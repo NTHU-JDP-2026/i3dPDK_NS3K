@@ -5,7 +5,7 @@
 #   <run_xplace_dir> holds <top>.in.def and <top>.in.lefs from xplace_place.tcl;
 #   writes <top>.gp.def (for defIn) and xplace.log next to them.
 # Env: XPLACE_DIR        Xplace checkout (default ~/Xplace), mounted at /workspace in
-#      XPLACE_CONTAINER  the docker container that runs it (default compassionate_pascal)
+#      XPLACE_CONTAINER  the docker container that runs it (required)
 #      XPLACE_GPU        GPU id (default 0)
 #      XPLACE_TD         target density (default 0.8; Xplace's own default 1.0 packs
 #                        regions solid and refinePlace then moves cells ~40x farther,
@@ -15,7 +15,7 @@ set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 repo=$(cd "$here/../.." && pwd)
 xdir=${XPLACE_DIR:-$HOME/Xplace}
-ctr=${XPLACE_CONTAINER:-compassionate_pascal}
+ctr=${XPLACE_CONTAINER:?set XPLACE_CONTAINER to the docker container that mounts ~/Xplace at /workspace}
 run=$(cd "$1" && pwd)
 in_def=$(ls "$run"/*.in.def)
 top=$(basename "$in_def" .in.def)

@@ -122,7 +122,7 @@ if [ -n "${PA_FLIP:-}" ]; then
     mkdir -p "$lrun/xplace"
     retry rsync -a "$gw:$rrun/xplace/" "$lrun/xplace/"
     top=$(basename "$(ls "$lrun"/xplace/*.preroute.def)" .preroute.def)
-    xdir=${XPLACE_DIR:-$HOME/Xplace}; ctr=${XPLACE_CONTAINER:-compassionate_pascal}
+    xdir=${XPLACE_DIR:-$HOME/Xplace}; ctr=${XPLACE_CONTAINER:?set XPLACE_CONTAINER to the docker container that mounts ~/Xplace at /workspace}
     fw=xplace_work/ns3k/$(echo "${lrun##*/pnr/out/}" | tr / _)_flip
     mkdir -p "$xdir/$fw"
     cells=$(grep cells "$lrun/xplace/$top.in.lefs" | head -1)
