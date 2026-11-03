@@ -1,0 +1,15 @@
+diff --git a/src/lefdefIO.cpp b/src/lefdefIO.cpp
+index c082cbb..b5250cd 100644
+--- a/src/lefdefIO.cpp
++++ b/src/lefdefIO.cpp
+@@ -1167,8 +1167,8 @@ void GenerateDummyCell(Replace::Circuit& __ckt) {
+   // termCnt Updates 
+   int prevCnt = terminalCNT;
+   terminalCNT += dummyTermStor_.size();
+-//  terminalInstance = 
+-//    (TERM*) realloc( terminalInstance, sizeof(TERM) * terminalCNT);
++  terminalInstance = 
++    (TERM*) realloc( terminalInstance, sizeof(TERM) * terminalCNT);
+  
+   // copy into original instances 
+   for(int i=prevCnt; i<terminalCNT; i++) {

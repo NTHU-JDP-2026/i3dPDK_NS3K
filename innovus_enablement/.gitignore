@@ -1,0 +1,5 @@
+# run outputs (netlists: syn/run_syn.sh, PnR runs: on the Innovus server)
+syn/out/
+pnr/out/
+__pycache__/
+.flow_version
